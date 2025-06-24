@@ -6,8 +6,8 @@ from sqlalchemy.orm import Session
 from datetime import timedelta
 from typing import List
 
-from . import auth, crud, models, schemas
-from .database import engine, get_db
+import auth, crud, models, schemas
+from database import engine, get_db
 
 # Создаем таблицы в БД (если их нет)
 models.Base.metadata.create_all(bind=engine)
