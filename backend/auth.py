@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 from sqlalchemy.orm import Session
 
-from . import schemas, crud, database
+import schemas, crud, database
 
 # Настройки
 SECRET_KEY = "your-super-secret-key" # В реальном проекте вынести в переменные окружения
