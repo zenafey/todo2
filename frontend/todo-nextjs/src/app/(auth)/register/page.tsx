@@ -17,7 +17,7 @@ export default function RegisterPage() {
         setError('');
         setSuccess('');
         try {
-            await axios.post(' http://127.0.0.1:8000/users/', { email, password });
+            await axios.post('http://46.148.238.212:8000/users/', { email, password });
             setSuccess('Registration successful! Redirecting to login...');
             setTimeout(() => router.push('/login'), 2000);
         } catch (err: any) {
