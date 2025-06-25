@@ -15,7 +15,7 @@ export interface Task {
 // Асинхронная функция для получения задач на сервере
 async function getTasks(token: string): Promise<Task[]> {
     try {
-        const res = await fetch('http://46.148.238.212:8000/tasks/', {
+        const res = await fetch(`${process.env.FASTAPI_URL}/tasks/`, {
             headers: {
                 Cookie: `access_token=${token}`,
             },
