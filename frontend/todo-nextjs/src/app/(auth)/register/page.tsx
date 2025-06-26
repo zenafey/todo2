@@ -17,7 +17,7 @@ export default function RegisterPage() {
         setError('');
         setSuccess('');
         try {
-            await axios.post(`${process.env.FASTAPI_URL}/users/`, { email, password });
+            await axios.post(`api/users/`, { email, password });
             setSuccess('Registration successful! Redirecting to login...');
             setTimeout(() => router.push('/login'), 2000);
         } catch (err: any) {

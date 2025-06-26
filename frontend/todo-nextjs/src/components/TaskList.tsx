@@ -19,7 +19,7 @@ export default function TaskList({ initialTasks }: TaskListProps) {
         e.preventDefault();
         if (!title.trim()) return;
         try {
-            const response = await axios.post<Task>('/api/tasks', { title, description });
+            const response = await axios.post<Task>('/get/tasks', { title, description });
             setTasks([response.data, ...tasks]);
             setTitle('');
             setDescription('');
@@ -31,7 +31,7 @@ export default function TaskList({ initialTasks }: TaskListProps) {
     const handleToggleStatus = async (task: Task) => {
         try {
             const updatedTaskData = { status: !task.status };
-            await axios.put(`/api/tasks/${task.id}`, updatedTaskData);
+            await axios.put(`/get/tasks/${task.id}`, updatedTaskData);
             setTasks(tasks.map(t => (t.id === task.id ? { ...t, status: !t.status } : t)));
         } catch (err) {
             setError('Failed to update task status.');
@@ -40,7 +40,7 @@ export default function TaskList({ initialTasks }: TaskListProps) {
 
     const handleDeleteTask = async (taskId: number) => {
         try {
-            await axios.delete(`/api/tasks/${taskId}`);
+            await axios.delete(`/get/tasks/${taskId}`);
             setTasks(tasks.filter(t => t.id !== taskId));
         } catch (err) {
             setError('Failed to delete task.');

@@ -6,13 +6,14 @@ from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from typing import Optional
 from sqlalchemy.orm import Session
+import os
 
 import schemas, crud, database
 
 # Настройки
-SECRET_KEY = "your-super-secret-key" # В реальном проекте вынести в переменные окружения
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 3000
+SECRET_KEY = os.getenv("SECRET_KEY", "your-super-secret-key")
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30000)
 
 # Для хэширования паролей
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

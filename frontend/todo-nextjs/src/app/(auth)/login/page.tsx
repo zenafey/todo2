@@ -20,7 +20,7 @@ export default function LoginPage() {
             formData.append('username', email);
             formData.append('password', password);
 
-            const response = await axios.post(`${process.env.FASTAPI_URL}/token`, formData, {
+            await axios.post(`api/token`, formData, {
                 headers: {
                     "Cache-Control": "no-cache",
                     "Content-Type": "application/x-www-form-urlencoded",
