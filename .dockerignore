@@ -1,7 +1,0 @@
-node_modules
-.next
-*.log
-.env*
-.git
-/backend/build.py
-/frontend/todo-nextjs/build.py
